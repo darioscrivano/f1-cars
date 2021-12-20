@@ -16,4 +16,9 @@ export class CarsService {
   findAllCars(): Promise<Car[]> {
     return this.carModel.find().exec();
   }
+
+  createCar(car: Car): Promise<Car> {
+    const newCar = new this.carModel(car);
+    return newCar.save();
+  }
 }
